@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Bilimdon | 20 Ta Interaktiv Test Mashg'uloti</title>
+  <meta name="description" content="HTML bo'yicha 20 ta asosiy va muhim savollardan iborat interaktiv test dasturi. O'zbek tilida batafsil tushuntirishlar va sertifikat bilan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Orqa fon animatsiyali chiroqlar -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- HEADER / Yuqori Panel -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">
+          <!-- HTML5 Logo Icon -->
+          <svg viewBox="0 0 512 512">
+            <path d="M71 460L30 0h452l-41 460-185 52z"/>
+            <path fill="#e65100" d="M256 472l149-42 35-388H256z"/>
+            <path fill="#fff" d="M256 176h74l-7 77h-67v58h62l-6 69-56 16v61l111-31 16-177 4-50H256zm0-93v58h143l5-58z"/>
+            <path fill="#ebebeb" d="M256 176v-58H113l14 151h129v-58h-68l-4-35zm0 199l-57-16-4-43h-58l7 88 112 31z"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <h1>HTML Bilimdon</h1>
+          <p>20 Ta Test Mashg'uloti &bull; Veb Dasturlash</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Ovozni yoqish/o'chirish -->
+        <button class="icon-btn" id="soundToggleBtn" title="Ovozni o'chirish">
+          <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </button>
+        <!-- Yorug'/Qorong'i rejim -->
+        <button class="icon-btn" id="themeToggleBtn" title="Rejimni almashtirish">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== 1. WELCOME SCREEN ==================== -->
+    <main id="welcomeScreen" class="screen active">
+      <div class="glass-card welcome-hero">
+        <div class="hero-badge">
+          <span>🚀 Veb Dasturlashga Kirish</span>
+        </div>
+        <h2 class="hero-title">HTML Bo'yicha <span>Bilimingizni</span> Sinang!</h2>
+        <p class="hero-desc">
+          Ushbu interaktiv platforma HTML5 asoslari, teglari, atributlari va semantikasini o'rganish hamda mustahkamlash uchun mo'ljallangan 20 ta saralangan amaliy testlarni o'z ichiga oladi.
+        </p>
+
+        <!-- Imkoniyatlar gridi -->
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <h3>20 Ta Saralangan Savol</h3>
+            <p>HTML5, teglari, shakllar, jadvallar va semantika</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💡</div>
+            <h3>O'zbekcha Tushuntirish</h3>
+            <p>Har bir javob uchun batafsil izoh va dasturlash qoidalari</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🏆</div>
+            <h3>Rasmiy Sertifikat</h3>
+            <p>Test yakunida ismingiz tushirilgan maxsus sertifikat</p>
+          </div>
+        </div>
+
+        <!-- Rejim tanlash -->
+        <div class="mode-section">
+          <div class="mode-section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Mashg'ulot Rejimini Tanlang
+          </div>
+          <div class="mode-cards">
+            <!-- 1. O'rganish rejimi -->
+            <div class="mode-card selected" id="practiceModeCard">
+              <div class="mode-header">
+                <span class="mode-name">📚 O'rganish Rejimi</span>
+                <span class="mode-badge">Tavsiya etiladi</span>
+              </div>
+              <p class="mode-desc">
+                Har bir savolga javob berganingizda to'g'ri/xato ekanligi darhol ko'rsatiladi va to'liq izoh beriladi.
+              </p>
+            </div>
+            <!-- 2. Imtihon rejimi -->
+            <div class="mode-card" id="examModeCard">
+              <div class="mode-header">
+                <span class="mode-name">⏱️ Imtihon Rejimi</span>
+                <span class="mode-badge">20 daqiqa</span>
+              </div>
+              <p class="mode-desc">
+                Vaqt nazorati ostida real imtihon muhiti. Natijalar faqat test oxirida e'lon qilinadi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boshlash tugmasi -->
+        <button class="start-btn" id="startTestBtn">
+          <span>Testni Boshlash</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- ==================== 2. QUIZ SCREEN ==================== -->
+    <section id="quizScreen" class="screen">
+      <!-- Top info bar -->
+      <div class="quiz-topbar">
+        <div class="quiz-status-item">
+          <span class="status-pill" id="quizModeBadge">O'rganish rejimi</span>
+          <span class="status-pill">
+            Savol: <strong id="currentQNumber">1</strong> / <span id="totalQNumber">20</span>
+          </span>
+        </div>
+        <div class="quiz-status-item">
+          <span class="status-pill timer-pill" id="timerDisplay">20:00</span>
+          <button class="btn btn-secondary" id="finishQuizBtn" style="padding:6px 12px; font-size:0.85rem;">
+            Yakunlash
+          </button>
+        </div>
+      </div>
+
+      <!-- Jarayon chizig'i -->
+      <div class="progress-container">
+        <div class="progress-meta">
+          <span>Umumiy jarayon</span>
+          <span id="progressText">0 / 20 yechildi (0%)</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Savollar palitrasi (1-20 tugmalar) -->
+      <div class="palette-container">
+        <div class="palette-header">
+          <span>SAVOLLAR RO'YXATI (1-20):</span>
+          <div class="palette-legend">
+            <div class="legend-item"><span class="legend-dot current"></span> Hozirgi</div>
+            <div class="legend-item"><span class="legend-dot answered"></span> Belgilangan</div>
+            <div class="legend-item"><span class="legend-dot flagged"></span> ★ Belgilangan</div>
+          </div>
+        </div>
+        <div class="palette-grid" id="paletteGrid">
+          <!-- JavaScript orqali 1-20 generatsiya bo'ladi -->
+        </div>
+      </div>
+
+      <!-- Savol kartasi -->
+      <div class="glass-card question-card">
+        <div class="question-category" id="categoryBadge"># Asosiy tushunchalar</div>
+        <h2 class="question-text" id="questionText">Yuklanmoqda...</h2>
+
+        <!-- Kod namunasi (agar savolda bo'lsa) -->
+        <div class="code-box" id="codeBox" style="display:none;">
+          <div class="code-header">
+            <div class="code-dots">
+              <span class="code-dot dot-red"></span>
+              <span class="code-dot dot-yellow"></span>
+              <span class="code-dot dot-green"></span>
+            </div>
+            <span>HTML KODI</span>
+          </div>
+          <pre class="code-content" id="codeContent"></pre>
+        </div>
+
+        <!-- Variantlar -->
+        <div class="options-list" id="optionsList">
+          <!-- JavaScript orqali to'ldiriladi -->
+        </div>
+
+        <!-- Tushuntirish izohi (Practice Mode) -->
+        <div class="explanation-card" id="explanationCard">
+          <div class="explanation-title" id="explTitle">
+            Tushuntirish
+          </div>
+          <p class="explanation-desc" id="explText"></p>
+        </div>
+
+        <!-- Boshqaruv tugmalari -->
+        <div class="quiz-actions">
+          <button class="btn btn-secondary" id="prevBtn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Oldingi
+          </button>
+          
+          <button class="btn btn-flag" id="flagBtn">
+            ☆ Belgilash
+          </button>
+
+          <button class="btn btn-primary" id="nextBtn">
+            Keyingisi
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. RESULTS SCREEN ==================== -->
+    <section id="resultsScreen" class="screen">
+      <div class="glass-card results-card">
+        <div class="result-header">
+          <div class="result-badge passed" id="resBadge">NATIJA TAYYOR</div>
+          <h2 class="result-title" id="resTitle">Test Muvaffaqiyatli Yakunlandi!</h2>
+          <p class="result-subtitle" id="resSubtitle">Barcha 20 ta savol bo'yicha to'liq hisobotingiz:</p>
+        </div>
+
+        <!-- SVG Circular Score Gauge -->
+        <div class="score-gauge-wrap">
+          <svg class="score-svg" viewBox="0 0 160 160">
+            <defs>
+              <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e44d26" />
+                <stop offset="50%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+            </defs>
+            <circle class="score-circle-bg" cx="80" cy="80" r="70" />
+            <circle class="score-circle-fill" id="scoreCircle" cx="80" cy="80" r="70" />
+          </svg>
+          <div class="score-center-text">
+            <div class="score-percent" id="resPercent">0%</div>
+            <div class="score-fraction" id="resFraction">0 / 20</div>
+          </div>
+        </div>
+
+        <!-- Statistik kartalar -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-val c-green" id="statCorrect">0</div>
+            <div class="stat-lbl">To'g'ri javoblar</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val c-red" id="statWrong">0</div>
+            <div class="stat-lbl">Xato javoblar</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val c-blue" id="statTime">00:00</div>
+            <div class="stat-lbl">Sarflangan vaqt</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val c-amber" id="statRate">0%</div>
+            <div class="stat-lbl">Samaradorlik</div>
+          </div>
+        </div>
+
+        <!-- Asosiy harakat tugmalari -->
+        <div class="result-actions">
+          <button class="btn btn-primary" id="restartBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            Qayta Boshlash
+          </button>
+          <button class="btn btn-secondary" id="retryWrongBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            Xatolarni Qayta Ishlash
+          </button>
+        </div>
+
+        <!-- Sertifikat olish bo'limi -->
+        <div class="cert-section">
+          <div class="cert-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            Maxsus Sertifikat Yaratish
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:12px;">
+            Ism va familiyangizni kiriting va HTML bo'yicha rasmiy sertifikatingizni yuklab oling yoki chop eting:
+          </p>
+          <div class="cert-form">
+            <input type="text" class="cert-input" id="certNameInput" placeholder="Ism va Familiyangizni kiriting (masalan: Ali Valiyev)">
+            <button class="btn btn-finish" id="genCertBtn">Sertifikatni Olish</button>
+          </div>
+        </div>
+
+        <!-- Barcha 20 ta savol tahlili -->
+        <div class="review-section">
+          <div class="review-header">
+            <h3>Savollar Tahlili va To'g'ri Javoblar</h3>
+            <div class="review-filter-tabs">
+              <button class="filter-btn active" id="filter-all" onclick="filterReview('all')">Barchasi (20)</button>
+              <button class="filter-btn" id="filter-wrong" onclick="filterReview('wrong')">Xatolar</button>
+              <button class="filter-btn" id="filter-correct" onclick="filterReview('correct')">To'g'rilar</button>
+            </div>
+          </div>
+          <div id="reviewList">
+            <!-- JavaScript orqali ro'yxat chiqadi -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 HTML Bilimdon &bull; Interaktiv Ta'lim Platformasi</p>
+    </footer>
+
+  </div>
+
+  <!-- ==================== FINISH CONFIRMATION MODAL ==================== -->
+  <div class="modal-overlay" id="finishModal">
+    <div class="modal-card">
+      <div class="modal-title">Testni Yakunlash</div>
+      <p class="modal-text" id="modalText">Rostdan ham testni yakunlamoqchimisiz?</p>
+      <div class="modal-btns">
+        <button class="btn btn-secondary" id="modalCancelBtn">Davom etish</button>
+        <button class="btn btn-finish" id="modalConfirmBtn">Yakunlash va Natija</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CERTIFICATE MODAL ==================== -->
+  <div id="certificateModal">
+    <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+      <div class="cert-paper">
+        <h2>MUVAFFAQIYAT SERTIFIKATI</h2>
+        <p class="sub">Ushbu sertifikat tasdiqlaydiki,</p>
+        
+        <div class="cert-recipient" id="certRecipient">Ali Valiyev</div>
+        
+        <p class="cert-body">
+          <strong>HTML5 (HyperText Markup Language)</strong> texnologiyalari, teglari, semantikasi va tuzilishi bo'yicha maxsus 20 ta test sinovini muvaffaqiyatli topshirdi va yuqori natijani qayd etdi.
+        </p>
+
+        <div style="font-size:1.15rem; font-weight:bold; margin-bottom:15px; color:#1e1b4b;">
+          To'plangan natija: <span id="certScore" style="color:#b45309;">95%</span>
+        </div>
+
+        <div class="cert-footer">
+          <div>
+            <strong>Berilgan sana:</strong><br>
+            <span id="certDate">7-oktabr, 2026</span>
+          </div>
+          <div class="cert-seal">
+            HTML5<br>VERIFIED
+          </div>
+          <div>
+            <strong>Kengash raisi:</strong><br>
+            <span>HTML Bilimdon Akademiya</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-modal-btns">
+        <button class="btn btn-primary" id="printCertBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Chop etish / PDF qilib saqlash
+        </button>
+        <button class="btn btn-secondary" id="closeCertBtn">Yopish</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
